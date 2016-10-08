@@ -1,9 +1,19 @@
+
+/**
+ * Module dependencies.
+ */
+
 var gm = require('gm');
 var generateCode = require('./lib/generateCode.js');
 var getColor = require('./lib/getColors.js');
 var randomBetween = require('./lib/randomBetween.js');
 var path = require('path');
 var rootPath = path.join(__dirname,'./');
+
+/**
+ * Constructor.
+ */
+
 function Gm(options) {
 	// defaults
 	this.options = options || {};
