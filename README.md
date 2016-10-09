@@ -1,4 +1,4 @@
-# gm-captcha[![Build Status](https://travis-ci.org/eidonjoe/gm-captcha.svg?branch=master)](https://travis-ci.org/eidonjoe/gm-captcha)
+# gm-captcha[![Build Status](https://travis-ci.org/eidonjoe/gm-captcha.svg?branch=master)](https://travis-ci.org/eidonjoe/gm-captcha)[![npm](https://img.shields.io/npm/v/gm-captcha.svg?maxAge=2592000)](https://www.npmjs.com/package/gm-captcha)
 
 a node captcha library using the gm module 
 
