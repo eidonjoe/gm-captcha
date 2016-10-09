@@ -1,4 +1,4 @@
-# gm-captcha
+# gm-captcha[![Build Status](https://travis-ci.org/eidonjoe/gm-captcha.svg?branch=master)](https://travis-ci.org/eidonjoe/gm-captcha)
 
 a node captcha library using the gm module 
 
