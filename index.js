@@ -8,7 +8,7 @@ var generateCode = require('./lib/generateCode.js');
 var getColor = require('./lib/getColors.js');
 var randomBetween = require('./lib/randomBetween.js');
 var path = require('path');
-var rootPath = path.join(__dirname,'./');
+var rootPath = path.join(__dirname,'./font/DroidSansFallback.ttf');
 
 /**
  * Constructor.
@@ -34,7 +34,7 @@ function Gm(options) {
 	if (!this.options.lineCount) this.options.lineCount = 20;
 	if (!this.options.lineWidth) this.options.lineWidth = 1;
 	if (!this.options.pointCount) this.options.pointCount = 500;
-	if (!this.options.font) this.options.font = rootPath + 'font/DroidSansFallback.ttf'; // 不识别绝对路径
+	if (!this.options.font) this.options.font = rootPath; // 不识别绝对路径
 	if (!this.options.fontSize) this.options.fontSize = 50;
 }
 Gm.prototype.init = function () {

@@ -1,6 +1,6 @@
 {
   "name": "gm-captcha",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a node.js captcha library using the gm module",
   "main": "index.js",
   "scripts": {
