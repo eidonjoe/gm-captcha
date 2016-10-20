@@ -42,9 +42,11 @@ captcha.gmBuffer(gmObj, 'PNG', function (buffer) {
     <tr><td>width</td><td>image width</td><td>100</td></tr>
     <tr><td>height</td><td>image height</td><td>50</td></tr>
     <tr><td>background</td><td>image background, support rgb or hex</td><td>#fff</td></tr>
-    <tr><td>colorLength</td><td>the maximum color count of the point and line displayed</td><td>20</td></tr>
+    <tr><td>colorCount</td><td>the maximum color count of the point and line displayed</td><td>20</td></tr>
     <tr><td>text</td><td>the text you want to display</td><td>Random four digit</td></tr>
-    <tr><td>textColor</td><td>text color, support rgb or hex</td><td>#000</td></tr>
+    <tr><td>maxTextWidth</td><td>the max font weight you want to display</td><td>3</td></tr>
+    <tr><td>textColorCount</td><td>the max color count of the text displayed</td><td>20</td></tr>
+    <tr><td>textColor</td><td>text color, support rgb or hex</td><td>random color between 0 and 20</td></tr>
     <tr><td>textIndent</td><td>indent, left margin of text</td><td>0</td></tr>
     <tr><td>wordSpacing</td><td>word space</td><td>25</td></tr>
     <tr><td>maxSwirl</td><td>the maximum degree of the picture center swirl</td><td>20</td></tr>

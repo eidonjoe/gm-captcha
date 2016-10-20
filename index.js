@@ -17,16 +17,18 @@ var rootPath = path.join(__dirname,'./font/DroidSansFallback.ttf');
 function Gm(options) {
 	// defaults
 	this.options = options || {};
-	this.options.colorLength = this.options.colorLength || 20
+	this.options.colorCount = this.options.colorCount || 20
 	this.options.textLength = this.options.textLength || 4
 
 	if (!this.options.symbol) this.options.symbol = '';
 	if (!this.options.width) this.options.width = 100;
 	if (!this.options.height) this.options.height = 50;
 	if (!this.options.background) this.options.background = '#fff';
-	if (!this.options.colors) this.options.colors = getColor(this.options.colorLength);
+	if (!this.options.colors) this.options.colors = getColor(this.options.colorCount);
 	if (!this.options.text) this.options.text = generateCode(this.options.textLength);
-	if (!this.options.textColor) this.options.textColor = '#000';
+	if (!this.options.maxTextWidth) this.options.maxTextWidth = 3;
+	if (!this.options.textColorCount) this.options.textColorCount = 20;
+	if (!this.options.textColor) this.options.textColor = null;
 	if (!this.options.textIndent) this.options.textIndent = 0;
 	if (!this.options.wordSpacing) this.options.wordSpacing = 25;
 	if (!this.options.maxSwirl && this.options.maxSwirl != 0) this.options.maxSwirl = 20;
@@ -46,7 +48,7 @@ Gm.prototype.drawText = function () {
 	for (var i = 0; i < this.options.text.length; i++) {
 		this.options.symbol = randomBetween(0,10) > 5 ? '' : '-';
 		this.gm
-		.stroke(this.options.textColor, randomBetween(1,3))
+		.stroke(this.options.textColor || this.options.colors[randomBetween(0,this.options.textColorCount)].css, randomBetween(1,this.options.maxTextWidth))
 		.drawText(
 			parseInt(i * this.options.wordSpacing), 
 			this.options.fontSize, this.options.text[i]
@@ -94,11 +96,28 @@ Gm.prototype.gmFile = function (gm, path, filename, fileType) {
 		if (err) return err;
 	})
 }
-Gm.prototype.generator = function () {
+Gm.prototype.generator = function (arr) {
 	this.init();
-	this.drawText();
-	this.drawLine();
-	this.drawPoint();
+	var executeArr = arr;
+	if (Object.prototype.toString.call(executeArr) != "[object Array]") {
+		executeArr = ['line','text','line','point'];
+	}
+	for (var i = 0; i < executeArr.length; i++) {
+		switch (executeArr[i]) {
+			case 'text':
+				this.drawText();
+				break;
+			case 'line':
+				this.drawLine();
+				break;
+			case 'point':
+				this.drawPoint();
+				break;
+			default:
+				this.drawPoint();
+				break;
+		}
+	};
 	this.gm.resize(this.options.width, this.options.height, "!"); // necessary!
 	return this.gm;
 }
